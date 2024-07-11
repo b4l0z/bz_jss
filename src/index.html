@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speedtest</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const socket = io();
+
+        socket.on("current_speed", function (speed) {
+          document.getElementById("current-speed").innerText = `${speed} Mbps`;
+        });
+
+        socket.on("min_speed", function (minSpeed) {
+          document.getElementById("min-speed").innerText = `Min: ${minSpeed} Mbps`;
+        });
+
+        socket.on("max_speed", function (maxSpeed) {
+          document.getElementById("max-speed").innerText = `Max: ${maxSpeed} Mbps`;
+        });
+
+        socket.on("totalGB", function (totalGB) {
+          document.getElementById("downloaded-amount").innerText = `${totalGB} GB`;
+        });
+
+        socket.on("progress", function (progress) {
+          document.getElementById("progress").style.width = `${progress}%`;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>BZ JSSpeed</h1>
+      </header>
+      <div class="speedtest-container">
+        <div class="speed-labels">
+          <span id="min-speed">Min: <strong>0</strong> Mbps</span>
+          <span id="max-speed">Max: <strong>0</strong> Mbps</span>
+        </div>
+        <div class="current-speed" id="current-speed">0 Mbps</div>
+      </div>
+      <div class="progress-container">
+        <span>Total downloaded :</span>
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="downloaded-amount" id="downloaded-amount">0.00GB</div>
+      </div>
+    </div>
+  </body>
+</html>

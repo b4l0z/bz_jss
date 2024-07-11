@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0f7fa;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 400px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #00796b;
+}
+
+.speedtest-container {
+  margin-bottom: 30px;
+}
+
+.speed-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #00796b;
+  padding: 0 20px;
+}
+
+.current-speed {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #004d40;
+  margin: 0px 0;
+}
+
+#min-speed,
+#max-speed {
+  white-space: nowrap;
+}
+
+.progress-container {
+  text-align: left;
+  font-size: 1rem;
+  color: #004d40;
+}
+
+.progress-bar {
+  background: #b2dfdb;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.progress {
+  background: #00796b;
+  width: 0%;
+  height: 100%;
+}
+
+.downloaded-amount {
+  text-align: right;
+  color: #004d40;
+}
